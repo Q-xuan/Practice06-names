@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    body {
+        font-size: 20px;
+    }
+
+    .box {
+        width: 300px;
+        height: 300px;
+        margin: 5vw auto;
+        /* flex布局 水平居中 自动换行 垂直对齐 */
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: space-between
+    }
+
+    @media screen and (max-width: 500px) {
+        .box {
+            margin: 40% auto;
+        }
+    }
+
+    .name {
+        width: 85%;
+        height: 85%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .name span {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(rgb(247, 179, 116), rgb(243, 213, 178));
+        box-shadow: rgb(244, 204, 160) 0px 0px 5px 2px;
+        list-style: none;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: rgb(255, 255, 255);
+    }
+
+    button {
+        width: 80%;
+        height: 10%;
+        border: 0px solid rgb(245, 222, 206);
+        border-radius: 8px;
+        background: rgb(253, 196, 122);
+        box-shadow: rgb(211, 164, 102) 1px 1px 4px 1px;
+        font-family: 'SimHei', 'YouYuan', 'Microsoft';
+        color: rgb(158, 91, 8);
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="name">
+            <span></span>
+        </div>
+        <button>抽个男朋友,吼吼吼2333...😄鹅鹅鹅</button>
+    </div>
+    <script>
+        //名字 数组
+        var names = ['蔡徐坤', '王俊凯', '金希澈', '王嘉尔', '吴亦凡', '李易峰']
+        var btn = document.getElementsByTagName('button')[0];
+        var span = document.getElementsByTagName('span')[0];
+        // console.log()
+        var timer;
+        btn.onclick = function () {
+            if (this.innerHTML == '抽个男朋友,吼吼吼2333...😄鹅鹅鹅') {
+                this.innerHTML = '停止';
+                timer = setInterval(function () {
+                    span.innerHTML = names[Math.floor(Math.random() * names.length)]
+                }, 50);
+            } else {
+                clearInterval(timer);
+                this.innerHTML = ('抽个男朋友,吼吼吼2333...😄鹅鹅鹅')
+            }
+        }
+
+    </script>
+</body>
+
+</html>
